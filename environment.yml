@@ -1,0 +1,11 @@
+name: tmc_fastapi
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - fastapi
+  - uvicorn
+  - black
+prefix: /Users/markmorley/miniconda3/envs/tmc_fastapi
+# conda env export -n tmc_fastapi --from-history > environment.yml

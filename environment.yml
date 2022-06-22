@@ -8,6 +8,15 @@ dependencies:
   - fastapi
   - python=3.9
   - python-multipart
-  -pip
-    -tmc-summarizer
+  - pandas
+  - geopandas
+  - xlrd
+  - xlsxwriter
+  - python-dotenv
+  - googlemaps
+  - sqlalchemy
+  - psycopg2-binary
+  - pip
+  - pip:
+      - git+https://github.com/dvrpc/tmc-summarizer.git
 prefix: /Users/markmorley/miniconda3/envs/tmc_fastapi

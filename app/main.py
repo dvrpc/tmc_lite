@@ -7,23 +7,6 @@ from tmc_summarizer import write_summary_file
 app = FastAPI()
 
 
-@app.post("/path/")
-async def path(path: str = Form()):
-    return {"Filepath": path}
-
-
-# app.mount(
-#     "/Volumes/GoogleDrive/Shared drives",
-#     StaticFiles(directory="Volumes"),
-#     name="shared",
-# )
-
-
-@app.post("/files/")
-async def create_files(files: list[bytes] = File()):
-    return {"file_sizes": [len(file) for file in files]}
-
-
 @app.post("/uploadfiles/")
 async def create_upload_files(files: list[UploadFile]):
     return {"filenames": [file.filename for file in files]}
@@ -33,10 +16,17 @@ async def create_upload_files(files: list[UploadFile]):
 async def main():
     content = """
 <body>
-<form action="/files/" enctype="multipart/form-data" method="post">
-<input name="files" type="file" multiple>
-<input type="submit">
-</form>
+<h1>
+Upload your TMC Files here! 
+</h1>
+<h2>
+File names must meet the following criteria:
+<h2/>
+<ul>
+        <li> file ends in ``.xls``</li>
+        <li> filename has at least 1 underscore</li>
+        <li> text before the first underscore is a number</li>
+<ul/>
 <form action="/uploadfiles/" enctype="multipart/form-data" method="post">
 <input name="files" type="file" multiple>
 <input type="submit">

@@ -1,7 +1,7 @@
 from typing import List
-
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse
+from tmc_summarizer import write_summary_file
 
 app = FastAPI()
 
@@ -31,3 +31,4 @@ async def main():
 </body>
     """
     return HTMLResponse(content=content)
+

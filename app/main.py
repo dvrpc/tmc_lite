@@ -1,9 +1,16 @@
 from typing import List
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from tmc_summarizer import write_summary_file
 
 app = FastAPI()
+# app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+# @app.post("/path/")
+# async def path(path: str = Form()):
+#     return {"username": path}
 
 
 @app.post("/files/")
@@ -31,4 +38,3 @@ async def main():
 </body>
     """
     return HTMLResponse(content=content)
-

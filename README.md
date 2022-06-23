@@ -9,3 +9,11 @@ Create environment using:
 ```
 conda env create --file environment.yml
 ```
+
+## Development Server
+
+Launch Uvicorn server with:
+
+```
+uvicorn main:app --reload
+```

@@ -7,8 +7,11 @@ from fastapi.responses import FileResponse
 
 app = FastAPI()
 
+
 @app.post("/uploadfiles/")
-async def create_upload_files(files: list[UploadFile], background_tasks: BackgroundTasks):
+async def create_upload_files(
+    files: list[UploadFile], background_tasks: BackgroundTasks
+):
     # copies the files from the user directory into this repo, runs function from tmc_summarizer, returns summary file, cleans out excel files
     for file in files:
         with open(file.filename, "wb") as buffer:
@@ -18,15 +21,21 @@ async def create_upload_files(files: list[UploadFile], background_tasks: Backgro
     summary_filepath = os.path.normpath(summary[0])
     summary_filename = str(os.path.basename(os.path.normpath(summary[0])))
     background_tasks.add_task(delete_excel)
-    return FileResponse(summary_filepath, media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=summary_filename)
+    return FileResponse(
+        summary_filepath,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        filename=summary_filename,
+    )
+
 
 def delete_excel():
     # deletes the copied excel files and the summary file after returning it to the users downloads
     path = os.getcwd()
     os.chdir(path)
     for file in os.listdir(path):
-     if file.endswith('.xlsx') or file.endswith('.xls'):
-         os.remove(file)
+        if file.endswith(".xlsx") or file.endswith(".xls"):
+            os.remove(file)
+
 
 @app.get("/")
 # html and css info

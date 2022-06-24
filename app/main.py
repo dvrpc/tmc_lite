@@ -45,15 +45,15 @@ async def main():
 <style>
 h1 {
   color: Black;
-  font-family: Helvetica;
+  font-family: monospace;
 }
 h2 {
   color: Black;
-  font-family: Helvetica;
+  font-family: monospace;
 }
 p {
   color: Black;
-  font-family: Helvetica;
+  font-family: monospace;
   font-size: 15px
 }
 </head>
@@ -62,7 +62,7 @@ p {
 <h1>
 TMC Summarizer Bot
 </h1>
-<img src="/app/robot.png" alt="Free robot icon"/>
+<img src="https://www.reshot.com/preview-assets/icons/LH8Z2JXSQ7/robot-LH8Z2JXSQ7.svg" alt="Free robot icon" width ="200" height = "200"/>
 <h2>
 File names must meet the following criteria:
 <h2/>

@@ -9,6 +9,8 @@ Create environment using:
 ```
 conda env create --file environment.yml
 ```
+then:
+```conda activate tmc_fastapi```
 
 ## Development Server
 CD into "app" folder, then launch Uvicorn server with:

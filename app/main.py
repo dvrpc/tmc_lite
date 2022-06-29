@@ -9,9 +9,7 @@ app = FastAPI()
 
 
 @app.post("/uploadfiles/")
-async def create_upload_files(
-    files: list[UploadFile], background_tasks: BackgroundTasks
-):
+async def create_upload_files(files: list[UploadFile], background_tasks: BackgroundTasks):
     # copies the files from the user directory into this repo, runs function from tmc_summarizer, returns summary file, cleans out excel files
     for file in files:
         with open(file.filename, "wb") as buffer:

@@ -8,22 +8,20 @@ This is configured to run at <https://tmc.cloud.dvrpc.org/app/tmc-lite/> via Ans
 
 ## Development
 
-### Dependencies and Virtual Environment With Conda
+### Dependencies and Virtual Environment with Conda
 
 ```
 conda env create --file environment.yml
 conda activate tmc_fastapi
 ```
 
-### Dependencies and Virtual Environment With venv
+### Dependencies and Virtual Environment with venv
 
 ```
 python3 -m venv ve
 . ve/bin/activate
 pip install -r requirements_dev.txt
 ```
-
-(There is also a requirements_prod.txt for installing gunicorn on production server.)
 
 ### Development Server
 

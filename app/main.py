@@ -1,14 +1,19 @@
 import os
-from fastapi import FastAPI, UploadFile, BackgroundTasks
-from fastapi.responses import HTMLResponse
-from tmc_summarizer import write_summary_file
 import shutil
-from fastapi.responses import FileResponse
+
+from fastapi import FastAPI, UploadFile, BackgroundTasks
+from fastapi.responses import FileResponse, HTMLResponse
+from tmc_summarizer import write_summary_file
+
+try:
+    from .config import URL_PATH
+except ImportError:
+    URL_PATH = ""
 
 app = FastAPI()
 
 
-@app.post("/uploadfiles/")
+@app.post(f"{URL_PATH}/uploadfiles/")
 async def create_upload_files(files: list[UploadFile], background_tasks: BackgroundTasks):
     # copies the files from the user directory into this repo, runs function from tmc_summarizer, returns summary file, cleans out excel files
     for file in files:
@@ -35,7 +40,7 @@ def delete_excel():
             os.remove(file)
 
 
-@app.get("/")
+@app.get(f"{URL_PATH}/")
 # html and css info
 async def main():
     content = """

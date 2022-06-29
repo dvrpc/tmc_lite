@@ -43,7 +43,8 @@ def delete_excel():
 @app.get(f"{URL_PATH}/")
 # html and css info
 async def main():
-    content = """
+    content = (
+        """
 <head>
 <style>
 h1 {
@@ -77,10 +78,12 @@ File names must meet the following criteria:
 <p>
 Summary file download takes a few seconds after pressing submit..
 <p/>
-<form action="/uploadfiles/" enctype="multipart/form-data" method="post">
+<form action="%s/uploadfiles/" enctype="multipart/form-data" method="post">
 <input name="files" type="file" multiple>
 <input type="submit">
 </form>
 </body>
     """
+        % URL_PATH
+    )
     return HTMLResponse(content=content)

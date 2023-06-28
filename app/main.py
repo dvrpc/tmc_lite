@@ -83,6 +83,7 @@ Summary file download takes a few seconds after pressing submit..
 <input name="files" type="file" multiple>
 <input type="submit">
 </form>
+<p> report any bugs or requested changes to app <a href="https://forms.gle/nsCDBTv8hi7enu4UA">here.</a></p>
 </body>
     """
         % URL_PATH

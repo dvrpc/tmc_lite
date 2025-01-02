@@ -78,6 +78,7 @@ File names must meet the following criteria:
         <li> Filename has at least 1 underscore</li>
         <li> Text before the first underscore is a number</li>
         <li> It is highly recommended that the numbers "e.g., the '3' in 3_DVRPC-TMC....xls" correspond to the node/intersection numbers in Synchro, to keep your intersections organized. 
+        <li> Try to only use RAW file straight from OTM, in other words, don't use files that you've edited or added manual calculations to. The tool will often break if you make edits to the file. (renaming the files is fine though)
         <li> Example filenames: 
             <ul>
                 <li> 1_DVRPC-TMC-174985 - Erie Ave @ PA 611 Broad St.xls

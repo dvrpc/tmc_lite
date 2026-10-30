@@ -25,6 +25,6 @@ pip install -r requirements_dev.txt
 
 ### Development Server
 
-Launch Uvicorn server with: `uvicorn app.main:app --reload`.
+Launch Uvicorn server with: `uvicorn app.main:app --reload` .
 
 Upload TMC files, wait 5-10 seconds, then summary of files is returned to your browser. 🤖
